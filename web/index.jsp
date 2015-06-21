@@ -395,7 +395,7 @@
 
       <div class="scroll-pane"><div>
         
-        <div class="gal1">
+              <div class="gal1" style="font-size: 12px">
          
             
        <h1>Time Table Analyzer!</h1>
