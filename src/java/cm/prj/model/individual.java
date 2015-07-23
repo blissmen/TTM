@@ -27,9 +27,6 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "individuall#!/page_PARTNERS", urlPatterns = {"/individuall"})
 public class individual extends HttpServlet{
     private String LIST_USER="/index.jsp";
-    private Object dat;
-    private ArrayList Name;
-    private ArrayList Lecturer_ID;
     private ArrayList name=new ArrayList();
    
      /**
@@ -46,29 +43,12 @@ public class individual extends HttpServlet{
         System.out.println("Working");
         String Code = request.getParameter("CourseCode");
         Functions function = new Functions();
-        
-        try {
-                Lecturer_ID= function.getTeacherAttribute("teacher_id","teachers_has_courses",Code);
-                System.out.println(Lecturer_ID.toString()); 
-                for(Object Id:Lecturer_ID)
-                 {
-                   name.add(function.getAttribute("name", "teachers",Id.toString()));
-                 }
-        
-        } catch (SQLException ex) {
-            System.out.println("Eror getting Lecturer information"); 
-        
-        }
-        try {
-            Name=function.getCurseAttribute("name","courses",Code);
-        } catch (SQLException ex) {
-            System.out.println("Error getting Courses Attribute "+ex.getMessage()+" "+ex.getCause());    
-        }
-       
-         RequestDispatcher view = request.getRequestDispatcher(LIST_USER);
-            request.setAttribute("record", dat);
+      ArrayList table= function.getTimetableWithNames();        
+      
+          RequestDispatcher view = request.getRequestDispatcher(LIST_USER);
+          //  request.setAttribute("record", dat);
             request.setAttribute("techer", name);
-            request.setAttribute("nameC", Name);
+            request.setAttribute("nameC", table);
             view.forward(request, response);
     }
 

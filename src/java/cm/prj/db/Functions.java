@@ -17,10 +17,16 @@ import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 public class Functions {
-    private ArrayList slots;
+    private ArrayList  Slot=new ArrayList();
 
     DbUtil database= new DbUtil();
-    private ArrayList result;
+    private ArrayList result=new ArrayList();
+    private ArrayList<ArrayList> RealSlots= new ArrayList<ArrayList>();
+     private ArrayList<ArrayList<ArrayList>> Reals= new ArrayList<ArrayList<ArrayList>>();
+   
+    private ArrayList slots;
+    private String sql;
+    private String sql2;
    
     public ArrayList getDays(Object data) {
 //        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -169,5 +175,122 @@ public class Functions {
              result.add(6);
    return Integer.getInteger(result.get(0).toString());
     }
-    
+    public ArrayList<ArrayList<ArrayList>> getTimeTable()
+            {
+               ArrayList Days = new ArrayList();
+               ArrayList Slot = new ArrayList();
+               ArrayList Courses = new ArrayList();
+               ArrayList Halls = new ArrayList();
+               //Halls = this.getAllHalls();
+                 Slot.add(0);
+                 Slot.add(1);
+                 Slot.add(2);
+                 Slot.add(3);
+                 Slot.add(4);
+                 Slot.add(5);
+                    Days.add(0);
+                    Days.add(1);
+                    Days.add(2);
+                    Days.add(3);
+                    Days.add(4);
+                    Days.add(5);
+               String sql ="";
+              for(int i =0; i<Days.size();i++)
+              {
+                for(int d=0 ; d<Slot.size();d++)
+                {
+                 sql = "select course_code from time_table where day="+i+" and slot ="+d;
+                   try {
+                       System.out.println(sql);
+                       Courses=database.getResultSet(sql);
+                      // System.out.println(Courses.toString());
+                        RealSlots.add(Courses);
+                      // System.out.println(RealSlots.toString());
+                   } catch (SQLException ex) {
+                       Logger.getLogger(Functions.class.getName()).log(Level.SEVERE, null, ex);
+                   }
+                }
+                Reals.add(RealSlots);
+              } 
+                //System.out.println("Final :"+Reals.toString());
+              return Reals;
+               
+            }
+
+    public ArrayList<ArrayList> getFreeeLecturer() {
+        int slot=5;
+        int day=5;
+        ArrayList res = new ArrayList();
+        ArrayList<ArrayList> finalres = new ArrayList();
+        for(int i=0;i<day;i++)
+            for(int j=0;j<slot;j++)
+            {
+                sql="select teachers.name from teachers where teachers.id not in (Select teacher_id from time_table where slot ="+ j+" and day ="+i+");";					
+            try {
+               System.out.println(sql);
+                res=database.getResultSet(sql);
+            } catch (SQLException ex) {
+                Logger.getLogger(Functions.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            finalres.add(res);
+            }
+        System.out.println("resuts are"+finalres.toString());
+                return finalres;
+    }
+
+    public ArrayList getTimetableWithNames() {
+        ArrayList Days = new ArrayList();
+               ArrayList Lecturers = new ArrayList();
+               ArrayList finalLecturers = new ArrayList();
+               
+               ArrayList Lecturer = new ArrayList();
+               ArrayList Slot = new ArrayList();
+               ArrayList Courses = new ArrayList();
+               ArrayList Halls = new ArrayList();
+               //Halls = this.getAllHalls();
+                 Slot.add(0);
+                 Slot.add(1);
+                 Slot.add(2);
+                 Slot.add(3);
+                 Slot.add(4);
+                 Slot.add(5);
+                    Days.add(0);
+                    Days.add(1);
+                    Days.add(2);
+                    Days.add(3);
+                    Days.add(4);
+                    Days.add(5);
+               String sql ="";
+              for(int i =0; i<Days.size();i++)
+              {
+                for(int d=0 ; d<Slot.size();d++)
+                {
+                    sql = "select course_code from time_table where day="+i+" and slot ="+d;
+                   try {
+                       System.out.println(sql);
+                       Courses=database.getResultSet(sql);
+                       for(Object course: Courses)
+                       {
+                            sql2="select teachers.name from teachers where teachers.id=(select teacher_id from time_table where day="+i+" and slot ="+d+" and course_code='"+course.toString()+"')";
+                         Lecturer =  database.getResultSet(sql2);
+                           System.out.println(sql2);
+                         Lecturers.add(Lecturer.get(0));
+                           System.out.println(""+Lecturer.get(0));
+                       }
+                       finalLecturers.add(Lecturers);
+                       System.out.println("hmmm"+finalLecturers.toString());
+                      // System.out.println(Courses.toString());
+                        RealSlots.add(Courses);
+                      // System.out.println(RealSlots.toString());
+                   } catch (SQLException ex) {
+                       Logger.getLogger(Functions.class.getName()).log(Level.SEVERE, null, ex);
+                   }
+                }
+                Reals.add(RealSlots);
+              } 
+        
+        return RealSlots;
+        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+ 
 }

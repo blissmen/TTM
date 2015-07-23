@@ -35,12 +35,14 @@
             <tr>
                 <td>
                    <c:forEach items="${record}" var="records" begin="0" end="0"> 
-                      <c:forEach items="${records}" var ="day"> <c:out value="${day}" /><br/></c:forEach>
+                      <c:forEach items="${records}" var ="day" begin="0" end="0"> <c:forEach items="${day}" var ="course" > <c:out value="${course}" /><br/></c:forEach></c:forEach>
                    </c:forEach>
                 </td>
                 <td>
                    <c:forEach items="${record}" var="records" begin="1" end="1">
-                       <c:forEach items="${records}" var ="day"> <c:out value="${day}" /><br/> </c:forEach>
+                       <c:forEach items="${records}" var ="day">
+                           <c:out value="${day}" /><br/>
+                       </c:forEach>
                    </c:forEach>
                 </td>
                 <td>

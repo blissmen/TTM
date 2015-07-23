@@ -16,22 +16,14 @@
         <h1>Get the Individual list here</h1>
         <div style="">
             
-            <form  action='individual' method="gwt" >
-              Enter the Course Code  <input type="text" name="CourseCode"  required="true" placeholder="Ener course Code" />
+            <form  action='individual' method="put" >
+             
               <input type="submit" name="sumit" value="fetch">
               
             </form>
             
             <div>
-                Results
-                Teacher Name:
-                <c:forEach items="${techer}" var="name">
-                    <c:out value="${name}" />
-                </c:forEach>
-                <br />
-                Courses Name:<c:forEach items="${nameC}" var="nae"><c:out value="${nae}" /></c:forEach>
-                <br />
-                
+               
                 
             </div>
             

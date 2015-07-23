@@ -7,24 +7,38 @@ package cm.prj.model;
 
 import cm.prj.db.Functions;
 import java.io.IOException;
-import java.sql.SQLException;
+import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
+/**
+ *
+ * @author USER
+ */
+@WebServlet(name = "generator#!/page_CONTACTS", urlPatterns = {"/generator"})
+public class generator extends HttpServlet {
+    private Functions function;
 
-@WebServlet(name = "freelist#!/page_SERVICES", urlPatterns = {"/freelist"})
-public class freelist  extends HttpServlet{
-    private final String LIST_USER="index.jsp";
-  
-     /**
+    /**
+     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
+     * methods.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+       }
+
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
      * Handles the HTTP <code>GET</code> method.
      *
      * @param request servlet request
@@ -35,7 +49,8 @@ public class freelist  extends HttpServlet{
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-         }
+      //  processRequest(request, response);
+    }
 
     /**
      * Handles the HTTP <code>POST</code> method.
@@ -47,18 +62,23 @@ public class freelist  extends HttpServlet{
      */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException 
-    {
-            ArrayList<ArrayList> Lecturers= new ArrayList<ArrayList>();
-            Functions function = new Functions();
-             Lecturers= function.getFreeeLecturer();
-            HttpSession session = request.getSession(false);
-            RequestDispatcher view = request.getRequestDispatcher(LIST_USER);
-            System.out.println("Final "+Lecturers.toString());
-            request.setAttribute("record", Lecturers);
+            throws ServletException, IOException {
+       // processRequest(request, response);
+        function = new Functions();
+        ArrayList<ArrayList< ArrayList>> res = new ArrayList< ArrayList< ArrayList>>();
+        res = function.getTimeTable();
+        String LIST_USER="/index.jsp";
+         RequestDispatcher view = request.getRequestDispatcher(LIST_USER);
+         System.out.println("TO BE Exported"+res.toString());
+          request.setAttribute("CoursDays", res);
             view.forward(request, response);
     }
-   
+
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
     @Override
     public String getServletInfo() {
         return "Short description";

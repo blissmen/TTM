@@ -28,7 +28,7 @@
 
 
 <header>
-  <a href="index.html" class="logo">    
+  <a href="index.jsp" class="logo">    
     <div class="txt1">University of Buea</div>
     <div class="txt2">Timetable List Generator</div>
     <div class="txt3">The Best is Still to Come</div>
@@ -261,52 +261,577 @@
       
          <h1>WELCOME TO THE FREE LIST MODULE</h1>
          <form action='freelist#!/page_SERVICES' method="post">
-            <select name="select">
-                
-                <option id="first" value="1">CLASS ID</option><br />
-                <option id="sec" value="2">Teacher ID</option>
-                
-            </select>
-                   
-            ID <input required="true" type="text" name="id" placeholder="Teacher or Class ID">
-            <input type="submit" value="Get">
+      <input type="submit" value="Get">
         </form>
-           <table border="1" width="200px" cellpadding="3px"
-               cellspacing="5px">
-           
-            <tr><th>Monday</th><th>Tuesday</th><th>Wednesday</th><th>Thursday</th><th>Friday</th><th>Saturday</th></tr>
+           <table id = "table">
+            <tr><th>DAY/SLOT</th><th>7:00-9:00</th><th>9:00-11:00</th><th>11:00-13:00</th><th>13:00-15:00</th><th>15:00-17:00</th><th>17:00-19:00</th></tr>
             <tr><th>Monday</th>
-                <td>
+                     </td>
+                     <td>
                    <c:forEach items="${record}" var="records" begin="0" end="0"> 
-                      <c:forEach items="${records}" var ="day"> <c:out value="${day}" /><br/></c:forEach>
+                      <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach>
+                   </c:forEach>
+                     </td>
+                   
+                <td><c:forEach items="${record}" var="records" begin="1" end="1"> 
+                       <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach>
                    </c:forEach>
                 </td>
                 <td>
-                   <c:forEach items="${record}" var="records" begin="1" end="1">
-                       <c:forEach items="${records}" var ="day"> <c:out value="${day}" /><br/> </c:forEach>
+                   <c:forEach items="${record}" var="records" begin="2" end="2"> 
+                    <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach>   
+                   
                    </c:forEach>
+                    
                 </td>
                 <td>
-                    <c:forEach items="${record}" var="records" begin="2" end="2">
-                         <c:forEach items="${records}" var ="day"> <c:out value="${day}" /><br/> </c:forEach>
+                   <c:forEach items="${record}" var="records" begin="3" end="3"> 
+                    <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach>
+                   </c:forEach>
+                    
+                </td><td>
+                   <c:forEach items="${record}" var="records" begin="4" end="4"> 
+                    <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach>
+                   </c:forEach>
+                    
+           
+                    
+                </td><td>
+                   <c:forEach items="${record}" var="records" begin="5" end="5"> 
+                    <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach>
+                   </c:forEach>
+                    
+                </td>
+            
+            </tr>
+                <tr><th>Tuesday</th>
+                <td><c:forEach items="${record}" var="records" begin="6" end="6"> 
+                   
+                     <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach>
                     </c:forEach>
                 </td>
                 <td>
-                    <c:forEach items="${record}" var="records" begin="3" end="3">
-                         <c:forEach items="${records}" var ="day"> <c:out value="${day}" /><br/> </c:forEach>
-                     </c:forEach>
+                   <c:forEach items="${record}" var="records" begin="7" end="7"> 
+                     <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach></c:forEach>
+                    
                 </td>
-                <td>  
-                    <c:forEach items="${record}" var="records" begin="4" end="4">
-                        <c:forEach items="${records}" var ="day"> <c:out value="${day}" /><br/> </c:forEach>
+                <td>
+                   <c:forEach items="${record}" var="records" begin="8" end="8"> 
+                      <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach></c:forEach>
+                    
+                </td>
+                <td>
+                   <c:forEach items="${record}" var="records" begin="9" end="9"> 
+                      <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach></c:forEach>
+                    
+                </td>
+                <td>
+                   <c:forEach items="${record}" var="records" begin="10" end="10"> 
+                      <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach>
+                   </c:forEach>
+                    
+                </td>
+                <td>
+                   <c:forEach items="${record}" var="records" begin="11" end="11"> 
+                    <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach></c:forEach>
+                    
+                </td>
+            
+            </tr>
+                <tr><th>Wednesday</th><td><c:forEach items="${record}" var="records" begin="6" end="6"> 
+                   
+                     <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach>
                     </c:forEach>
                 </td>
                 <td>
-                    <c:forEach items="${record}" var="records" begin="5" end="5">
-                         <c:forEach items="${records}" var ="day"> <c:out value="${day}" /><br/> </c:forEach>
+                   <c:forEach items="${record}" var="records" begin="7" end="7"> 
+                     <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach></c:forEach>
+                    
+                </td>
+                <td>
+                   <c:forEach items="${record}" var="records" begin="8" end="8"> 
+                      <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach></c:forEach>
+                    
+                </td>
+                <td>
+                   <c:forEach items="${record}" var="records" begin="9" end="9"> 
+                      <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach></c:forEach>
+                    
+                </td>
+                <td>
+                   <c:forEach items="${record}" var="records" begin="10" end="10"> 
+                      <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach>
+                   </c:forEach>
+                    
+                </td>
+                <td>
+                   <c:forEach items="${record}" var="records" begin="11" end="11"> 
+                    <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach></c:forEach>
+                    
+                </td>
+            
+            </tr>
+                <tr><th>Thursday</th><td><c:forEach items="${record}" var="records" begin="6" end="6"> 
+                   
+                     <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach>
                     </c:forEach>
                 </td>
-               </tr>
+                <td>
+                   <c:forEach items="${record}" var="records" begin="7" end="7"> 
+                     <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach></c:forEach>
+                    
+                </td>
+                <td>
+                   <c:forEach items="${record}" var="records" begin="8" end="8"> 
+                      <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach></c:forEach>
+                    
+                </td>
+                <td>
+                   <c:forEach items="${record}" var="records" begin="9" end="9"> 
+                      <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach></c:forEach>
+                    
+                </td>
+                <td>
+                   <c:forEach items="${record}" var="records" begin="10" end="10"> 
+                      <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach>
+                   </c:forEach>
+                    
+                </td>
+                <td>
+                   <c:forEach items="${record}" var="records" begin="11" end="11"> 
+                    <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach></c:forEach>
+                    
+                </td>
+            
+            </tr>
+                <tr><th>Friday</th><td><c:forEach items="${record}" var="records" begin="6" end="6"> 
+                   
+                     <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach>
+                    </c:forEach>
+                </td>
+                <td>
+                   <c:forEach items="${record}" var="records" begin="7" end="7"> 
+                     <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach></c:forEach>
+                    
+                </td>
+                <td>
+                   <c:forEach items="${record}" var="records" begin="8" end="8"> 
+                      <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach></c:forEach>
+                    
+                </td>
+                <td>
+                   <c:forEach items="${record}" var="records" begin="9" end="9"> 
+                      <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach></c:forEach>
+                    
+                </td>
+                <td>
+                   <c:forEach items="${record}" var="records" begin="10" end="10"> 
+                      <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach>
+                   </c:forEach>
+                    
+                </td>
+                <td>
+                   <c:forEach items="${record}" var="records" begin="11" end="11"> 
+                    <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach></c:forEach>
+                    
+                </td>
+            
+            </tr>
+                <tr><th>Saturday</th><td><c:forEach items="${record}" var="records" begin="6" end="6"> 
+                   
+                     <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach>
+                    </c:forEach>
+                </td>
+                <td>
+                   <c:forEach items="${record}" var="records" begin="7" end="7"> 
+                     <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach></c:forEach>
+                    
+                </td>
+                <td>
+                   <c:forEach items="${record}" var="records" begin="8" end="8"> 
+                      <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach></c:forEach>
+                    
+                </td>
+                <td>
+                   <c:forEach items="${record}" var="records" begin="9" end="9"> 
+                      <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach></c:forEach>
+                    
+                </td>
+                <td>
+                   <c:forEach items="${record}" var="records" begin="10" end="10"> 
+                      <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach>
+                   </c:forEach>
+                    
+                </td>
+                <td>
+                   <c:forEach items="${record}" var="records" begin="11" end="11"> 
+                    <c:forEach items="${records}" var ="day" begin="0" end="3">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} : " />
+                          </c:forEach>
+                         
+                      </c:forEach> <br/>
+                              <c:forEach items="${records}" var ="day" begin="3" end="6">
+                          <c:forEach items="${day}" var ="course" > 
+                              <c:out value="${course} :" />
+                          </c:forEach>
+                      </c:forEach></c:forEach>
+                    
+                </td>
+            
+            </tr>
+       
+                
         </table>
        
           
@@ -413,6 +938,11 @@
                 <c:out value="${nate}" /> 
             </c:forEach>
                 <br />
+             <table>
+                 <tr>
+                     
+                 </tr>
+             </table>
         </div>
         
         
@@ -500,21 +1030,41 @@
         <div style="">
             
             <form  action='individuall#!/page_PARTNERS' method="post" >
-              Enter the Course Code  <input type="text" name="CourseCode"  required="true" placeholder="Ener course Code" />
               <input type="submit" name="sumit" value="fetch">
               
             </form>
             
             <div>
-                Results
-                Teacher Name:
-                <c:forEach items="${techer}" var="name">
-                    <c:out value="${name}" />
-                </c:forEach>
-                <br />
-                Courses Name:<c:forEach items="${nameC}" var="nae"><c:out value="${nae}" /></c:forEach>
-                <br />
-                
+                <table id ="table">
+                    
+                    <tr>
+                        <th>DAY/SLOT</th><th>7:00-9:00</th><th>9:00-11:00</th><th>11:00-13:00</th><th>13:00-15:00</th><th>15:00-17:00</th><th>17:00-1900</th>
+                        </tr>
+                    <tr>
+                        <th>MONDAY</th>
+                        </tr>
+                    
+                    <tr>
+                        <th>TUESDAY</th>
+                        </tr>
+                    
+                    <tr>
+                        <th>WEDNESDAY</th>
+                        </tr>
+                    
+                    <tr>
+                        <th>THURSDAY</th>
+                        </tr>
+                    
+                    <tr>
+                        <th>FRIDAY</th>
+                        </tr>
+                    
+                    <tr>
+                        <th>SATURDAY</th>
+                        </tr>
+                    
+                </table>
                 
             </div>
             
@@ -580,16 +1130,664 @@ E-MAIL:MAIL@COMPANYNAME.COM</p>
     <div class="timetable">
    
       <h2>TIME TABLE BEING ANALYZED</h2>
-      <table border="1" width="200px" cellpadding="3px"
-               cellspacing="5px" id="table">
-          <tr><td><th>Monday</th></td></tr>
-          <tr><td><th>Tuesday</th></td></tr>  
-          <tr><td><th>Wednesday</th></td></tr>  
-          <tr><td><th>Thursday</th></td></tr>  
-          <tr><td><th>Friday</th></td></tr>
-           <tr><td><th>Saturday</th></td></tr>
-          
-      </table>
+      </div>
+      <br />
+      <br />
+      <br />
+        <table id ="table">
+                    <tr>
+                        <th>DAY/SLOT</th><th>7:00-9:00</th><th>9:00-11:00</th><th>11:00-13:00</th><th>13:00-15:00</th><th>15:00-17:00</th><th>17:00-1900</th>
+                        </tr>
+                    <tr>
+                        <th>MONDAY</th><td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="0" end="0">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                        
+                        
+                        <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="1" end="1">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                         <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="2" end="2">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                       <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="3" end="3">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                          <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="4" end="4">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                          <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="5" end="5">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                    </tr>
+                    
+                    <tr>
+                        <th>TUESDAY</th><td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="6" end="6">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                        
+                        
+                        <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="7" end="7">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                         <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="8" end="8">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                       <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="9" end="9">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                          <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="10" end="10">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                          <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="11" end="11">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                        </tr>
+                    
+                    <tr>
+                        <th>WEDNESDAY</th><td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="12" end="12">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                        
+                        
+                        <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="13" end="13">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                         <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="14" end="14">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                       <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="15" end="15">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                          <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="16" end="16">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                          <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="17" end="17">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                        </tr>
+                    
+                    <tr>
+                        <th>THURSDAY</th><td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="18" end="18">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                        
+                        
+                        <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="19" end="19">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                         <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="20" end="20">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                       <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="21" end="21">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                          <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="22" end="22">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                          <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="23" end="23">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                        </tr>
+                    
+                    <tr>
+                        <th>FRIDAY</th><td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="24" end="24">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                        
+                        
+                        <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="25" end="25">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                         <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="26" end="26">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                       <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="27" end="27">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                          <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="28" end="28">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                          <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="29" end="29">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                        </tr>
+                    
+                    <tr>
+                        <th>SATURDAY</th><td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="30" end="30">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                        
+                        
+                        <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="31" end="31">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                         <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="32" end="32">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                       <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="0" end="0">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="33" end="33">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                          <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="5" end="5">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="34" end="34">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                          <td>
+                            <c:forEach items="${CoursDays}" var="CoursesPerDay" begin="5" end="5">
+                                <c:forEach items="${CoursesPerDay}" var ="CoursesPerSlot" begin="35" end="35">
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="0" end="3">
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/> <c:out value="|"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach><br />
+                                        <c:forEach items="${CoursesPerSlot}" var ="Courses" begin="4" >
+                                                <c:forEach items="${Courses}" var ="Course" >
+                                                        <c:out value="${Course}"/>
+                                                </c:forEach>
+                                                
+                                        </c:forEach>
+                                </c:forEach>
+                            </c:forEach></td>
+                        </tr>
+                    
+                </table>
+   
+      <div id="button">
+          <form method="post" action="generator#!/page_CONTACTS">
+          <input type="submit" value="generate" />
+          </form>
+      
+              
     <!--  <div id="note"></div>
             <div id="fields">
             <form id="ajax-contact-form" action="javascript:alert('success!');">
