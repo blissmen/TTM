@@ -930,14 +930,24 @@
         <input type="submit" name="sumit" value="fetch" />
         </form>
         <div>
-            Result Display
+            This Displays for a set period which Teachers are Occupied as seen below
+            for a general Timetable of slots and teachers switch to Timetable
             <br />
             Department Members free at this time are
-            Teacher Name: 
-            <c:forEach items="${natte}" var="nate" > 
+            Teacher Name: <br />
+            <c:forEach begin="0" end="4"  items="${natte}" var="nate" > 
                 <c:out value="${nate}" /> 
+            </c:forEach><br />
+            <c:forEach begin="4" end="8"  items="${natte}" var="nate" > 
+                <c:out value="${nate}" /> 
+            </c:forEach><br />
+            <c:forEach begin="8" end="12"  items="${natte}" var="nate" > 
+                <c:out value="${nate}" /><br /> 
             </c:forEach>
-                <br />
+            
+            
+            
+            <br />
              <table>
                  <tr>
                      
